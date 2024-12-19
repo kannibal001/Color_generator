@@ -1,0 +1,72 @@
+@keyframes click {
+  0% {
+    padding: 0px;
+  }
+  100% {
+    padding: 150px;
+    font-size: 40px;
+  }
+}
+@keyframes click-out {
+  0% {
+    padding: 150px;
+    font-size: 40px;
+  }
+  50% {
+    font-size: 10px;
+  }
+  100% {
+    padding: 0px;
+    font-size: 0px;
+  }
+}
+
+html {
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  background-color: #121212;
+  animation-duration: 0s;
+}
+
+.header {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  height: 10%;
+  background-color: #347b38;
+  z-index: 10;
+}
+
+.container {
+  height: 100%;
+  margin: 10px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-auto-rows: 200px;
+  gap: 15px;
+}
+
+.content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 1s ease;
+  background-color: blue;
+  cursor: pointer;
+  position: relative;
+  border-radius: 20px;
+  font-size: 0;
+  animation: click-out 1s ease 0s forwards;
+}
+
+.content-click {
+  border: 1px solid red;
+  z-index: 1;
+  animation: click 1s ease 0s forwards;
+}
