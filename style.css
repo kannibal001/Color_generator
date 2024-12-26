@@ -37,6 +37,7 @@ html {
   flex-wrap: wrap;
   overflow-y: auto;
   border-right: 1px solid black;
+  align-content: flex-start;
 }
 .box-color {
   background-color: black;
@@ -62,6 +63,7 @@ html {
   background-color: #ffffd2;
   border-radius: 10px;
   border: 3px solid #fcbad3;
+  cursor: pointer;
 }
 
 .button:hover {
@@ -72,10 +74,14 @@ html {
   height: 100px;
   width: 80%;
   min-height: 0;
+  transition: transform 0.5s ease-in-out;
+  position: relative;
+  cursor: pointer;
 }
 
 .colorDiv:hover {
-  padding: 10px;
+  transform: scale(1.1, 1.1);
+  z-index: 1;
 }
 
 p {
