@@ -3,6 +3,7 @@ const textElement = document.querySelector(".text");
 const boxColorElement = document.querySelector(".box-color");
 const hotbarElement = document.querySelector(".hotbar");
 const colorDivElements = document.querySelectorAll(".colorDiv");
+const copyColorElement = document.querySelector("#copyColor");
 
 let color = "#000000";
 
@@ -20,16 +21,15 @@ buttonElement.addEventListener("click", () => {
   color = new randomColor().color;
   textElement.textContent = color;
   boxColorElement.style.background = color;
+
   const colorDiv = document.createElement("div");
   colorDiv.style.background = color;
   colorDiv.classList.add("colorDiv");
   hotbarElement.append(colorDiv);
+
   colorDiv.addEventListener("click", (event) => {
-    color = event.target.style.background
-      .replace("rgb(", "")
-      .replace(")", "")
-      .split(", ");
-    color = rgbToHex(color[0], color[1], color[2]);
+    rgbColor = event.target.style.background;
+    color = rgbToHex(rgbColor);
     textElement.textContent = color;
     boxColorElement.style.background = color;
   });
@@ -37,8 +37,18 @@ buttonElement.addEventListener("click", () => {
 
 textElement.addEventListener("click", () => {
   navigator.clipboard.writeText(color);
+  copyColor.style.visibility = "visible";
+
+  setTimeout(() => {
+    copyColor.style.visibility = "hidden";
+  }, 2000);
 });
 
-function rgbToHex(r, g, b) {
+function rgbToHex(rgb) {
+  rgbColor = rgb.replace("rgb(", "").replace(")", "").split(", ");
+  r = rgbColor[0];
+  g = rgbColor[1];
+  b = rgbColor[2];
+
   return "#" + ((1 << 24) | (r << 16) | (g << 8) | b).toString(16).slice(1);
 }
