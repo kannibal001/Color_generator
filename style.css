@@ -29,6 +29,7 @@ html {
 }
 
 .hotbar {
+  min-width: 160px;
   box-sizing: border-box;
   grid-area: hotbar;
   background-color: #aa96da;
@@ -43,8 +44,8 @@ html {
 
 .box-color {
   background-color: black;
-  height: 150px;
-  width: 150px;
+  min-height: 150px;
+  min-width: 150px;
   border-radius: 50%;
   border: 1px solid black;
 }
@@ -94,7 +95,7 @@ p {
   font-family: "Courier New", Courier, monospace;
 }
 
-@media (max-width: 400px) {
+@media (max-width: 700px) {
   .container {
     grid-template-areas:
       ". . ."
@@ -104,7 +105,7 @@ p {
   }
   .hotbar {
     flex-wrap: nowrap;
-    max-width: fit-content;
+    max-width: 100%;
     overflow-x: scroll;
     border-top: 1px solid black;
     justify-content: flex-start;
@@ -114,5 +115,9 @@ p {
     width: 5%;
     min-width: 100px;
     min-height: 35px;
+  }
+  .box-color {
+    min-width: 100px;
+    min-height: 100px;
   }
 }
