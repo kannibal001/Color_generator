@@ -104,7 +104,7 @@ p {
   }
   .hotbar {
     flex-wrap: nowrap;
-    max-width: fit-content;
+    max-width: 100%;
     overflow-x: scroll;
     border-top: 1px solid black;
     justify-content: flex-start;
