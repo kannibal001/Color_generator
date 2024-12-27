@@ -45,10 +45,8 @@ textElement.addEventListener("click", () => {
 });
 
 function rgbToHex(rgb) {
-  rgbColor = rgb.replace("rgb(", "").replace(")", "").split(", ");
-  r = rgbColor[0];
-  g = rgbColor[1];
-  b = rgbColor[2];
+  const rgbColor = rgb.replace(/[^0-9,]/g, "").split(",");
+  const [r, g, b] = rgbColor;
 
   return "#" + ((1 << 24) | (r << 16) | (g << 8) | b).toString(16).slice(1);
 }
